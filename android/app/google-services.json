@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "635822721339",
+    "project_id": "shareeatapp-ad1b2",
+    "storage_bucket": "shareeatapp-ad1b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635822721339:android:c44e57f782b495ed460f1e",
+        "android_client_info": {
+          "package_name": "com.theshubh77.shareeatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635822721339-g5503lqnrk43a5389h8m17sdu0ujma38.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theshubh77.shareeatapp",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "635822721339-6nbqg0gfihu5021fj6dvrb54gmene4hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ_a68wqpWao7Hz0VaTFZhuyyzTC4yjRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635822721339-6nbqg0gfihu5021fj6dvrb54gmene4hq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "635822721339-7920gm3e34j7q86utdejdsvo8mrfds6f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theshubh77.shareeatapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
