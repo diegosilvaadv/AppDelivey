@@ -27,7 +27,14 @@ service cloud.firestore {
     }
 
 
-    match /PizzasSalg/{document} {
+    match /PizzaGrande/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /pizzabroto/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;

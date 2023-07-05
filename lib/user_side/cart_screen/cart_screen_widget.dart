@@ -330,8 +330,6 @@ class _CartScreenWidgetState extends State<CartScreenWidget> {
                                   0.0, 16.0, 0.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('foodBooked');
-
                                   setState(() {
                                     FFAppState().Cart = [];
                                   });

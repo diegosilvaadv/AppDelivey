@@ -8,7 +8,8 @@ import 'schema/util/firestore_util.dart';
 import 'schema/users_record.dart';
 import 'schema/businesses_record.dart';
 import 'schema/food_record.dart';
-import 'schema/pizzas_salg_record.dart';
+import 'schema/pizza_grande_record.dart';
+import 'schema/pizzabroto_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,7 +20,8 @@ export 'schema/util/schema_util.dart';
 export 'schema/users_record.dart';
 export 'schema/businesses_record.dart';
 export 'schema/food_record.dart';
-export 'schema/pizzas_salg_record.dart';
+export 'schema/pizza_grande_record.dart';
+export 'schema/pizzabroto_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -181,52 +183,104 @@ Future<FFFirestorePage<FoodRecord>> queryFoodRecordPage({
       isStream: isStream,
     );
 
-/// Functions to query PizzasSalgRecords (as a Stream and as a Future).
-Future<int> queryPizzasSalgRecordCount({
+/// Functions to query PizzaGrandeRecords (as a Stream and as a Future).
+Future<int> queryPizzaGrandeRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      PizzasSalgRecord.collection,
+      PizzaGrandeRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<PizzasSalgRecord>> queryPizzasSalgRecord({
+Stream<List<PizzaGrandeRecord>> queryPizzaGrandeRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      PizzasSalgRecord.collection,
-      PizzasSalgRecord.fromSnapshot,
+      PizzaGrandeRecord.collection,
+      PizzaGrandeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<PizzasSalgRecord>> queryPizzasSalgRecordOnce({
+Future<List<PizzaGrandeRecord>> queryPizzaGrandeRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      PizzasSalgRecord.collection,
-      PizzasSalgRecord.fromSnapshot,
+      PizzaGrandeRecord.collection,
+      PizzaGrandeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<PizzasSalgRecord>> queryPizzasSalgRecordPage({
+Future<FFFirestorePage<PizzaGrandeRecord>> queryPizzaGrandeRecordPage({
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
   required bool isStream,
 }) =>
     queryCollectionPage(
-      PizzasSalgRecord.collection,
-      PizzasSalgRecord.fromSnapshot,
+      PizzaGrandeRecord.collection,
+      PizzaGrandeRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PizzabrotoRecords (as a Stream and as a Future).
+Future<int> queryPizzabrotoRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PizzabrotoRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PizzabrotoRecord>> queryPizzabrotoRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PizzabrotoRecord.collection,
+      PizzabrotoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PizzabrotoRecord>> queryPizzabrotoRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PizzabrotoRecord.collection,
+      PizzabrotoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<PizzabrotoRecord>> queryPizzabrotoRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      PizzabrotoRecord.collection,
+      PizzabrotoRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

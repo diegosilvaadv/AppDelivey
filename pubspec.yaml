@@ -31,7 +31,6 @@ dependencies:
   cloud_firestore_platform_interface: 5.15.0
   cloud_firestore_web: 3.6.0
   collection: 1.17.1
-  easy_debounce: 2.0.1
   firebase_auth: 4.6.2
   firebase_auth_platform_interface: 6.15.2
   firebase_auth_web: 5.5.2
@@ -58,7 +57,6 @@ dependencies:
   intl: 0.18.0
   json_path: 0.4.1
   lottie: 1.2.1
-  mapbox_search: 3.2.0
   package_info_plus: 3.1.0
   package_info_plus_platform_interface: 2.0.1
   page_transition: 2.0.4

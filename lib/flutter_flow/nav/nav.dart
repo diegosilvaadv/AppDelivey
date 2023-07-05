@@ -98,15 +98,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OnboardingScreenWidget(),
         ),
         FFRoute(
-          name: 'exploreScreen',
-          path: '/exploreScreen',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'exploreScreen')
-              : ExploreScreenWidget(),
-        ),
-        FFRoute(
           name: 'homeScreen',
-          path: '/homeScreen',
+          path: '/HomePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'homeScreen')
               : HomeScreenWidget(),
@@ -126,24 +119,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : ProfileScreenWidget(),
         ),
         FFRoute(
-          name: 'foodList',
-          path: '/foodList',
-          builder: (context, params) => FoodListWidget(
-            bizRef: params.getParam(
-                'bizRef', ParamType.DocumentReference, false, ['businesses']),
-          ),
-        ),
-        FFRoute(
-          name: 'foodDetails',
-          path: '/foodDetails',
-          builder: (context, params) => FoodDetailsWidget(
-            foodRef: params.getParam('foodRef', ParamType.DocumentReference,
-                false, ['businesses', 'food']),
-            bizRef: params.getParam(
-                'bizRef', ParamType.DocumentReference, false, ['businesses']),
-          ),
-        ),
-        FFRoute(
           name: 'bizHome',
           path: '/bizHome',
           builder: (context, params) => BizHomeWidget(),
@@ -159,9 +134,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ProductAddedWidget(),
         ),
         FFRoute(
-          name: 'foodBooked',
-          path: '/foodBooked',
-          builder: (context, params) => FoodBookedWidget(),
+          name: 'PizzaGrande1sabor',
+          path: '/pizzaGrande1sabor',
+          builder: (context, params) => PizzaGrande1saborWidget(),
+        ),
+        FFRoute(
+          name: 'PizzaGrande2Sabores',
+          path: '/pizzaGrande2Sabores',
+          builder: (context, params) => PizzaGrande2SaboresWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
