@@ -39,6 +39,8 @@ class _OnboardingScreenWidgetState extends State<OnboardingScreenWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       body: Column(

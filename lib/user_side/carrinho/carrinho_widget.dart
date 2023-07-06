@@ -44,6 +44,8 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).tertiary,
@@ -207,13 +209,44 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                             fontWeight: FontWeight.w500,
                           ),
                     ),
-                    Text(
-                      widget.cart!.length.toString(),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    StreamBuilder<List<UserCardRecord>>(
+                      stream: queryUserCardRecord(
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitPulse(
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 50.0,
+                              ),
+                            ),
+                          );
+                        }
+                        List<UserCardRecord> textUserCardRecordList =
+                            snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final textUserCardRecord =
+                            textUserCardRecordList.isNotEmpty
+                                ? textUserCardRecordList.first
+                                : null;
+                        return Text(
+                          '${textUserCardRecord!.preco}',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        );
+                      },
                     ),
                   ],
                 ),
