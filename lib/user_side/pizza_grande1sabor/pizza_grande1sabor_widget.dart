@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -347,6 +348,24 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget> {
                         ),
                       ),
                     ],
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(0.0),
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(
+                        sigmaX: 2.0,
+                        sigmaY: 2.0,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            300.0, 80.0, 0.0, 0.0),
+                        child: Icon(
+                          Icons.shopping_cart,
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 50.0,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
