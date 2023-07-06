@@ -201,6 +201,8 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                                   return CartItemWidget(
                                                     key: Key(
                                                         'Keyvt7_${choosenItemsIndex}_of_${choosenItems.length}'),
+                                                    cartDocument:
+                                                        choosenItemsItem,
                                                   );
                                                 }),
                                               ),
