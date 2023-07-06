@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -168,18 +169,49 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Text(
-                        'Escolha um sabor',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
+                  StreamBuilder<List<UserCardRecord>>(
+                    stream: queryUserCardRecord(
+                      singleRecord: true,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: SpinKitPulse(
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 50.0,
                             ),
-                      ),
-                    ],
+                          ),
+                        );
+                      }
+                      List<UserCardRecord> rowUserCardRecordList =
+                          snapshot.data!;
+                      // Return an empty Container when the item does not exist.
+                      if (snapshot.data!.isEmpty) {
+                        return Container();
+                      }
+                      final rowUserCardRecord = rowUserCardRecordList.isNotEmpty
+                          ? rowUserCardRecordList.first
+                          : null;
+                      return Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Escolha um sabor',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.max,
@@ -392,7 +424,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget> {
                       children: [
                         badges.Badge(
                           badgeContent: Text(
-                            _model.checkboxCheckedItems.length.toString(),
+                            currentUserReference!.id,
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
