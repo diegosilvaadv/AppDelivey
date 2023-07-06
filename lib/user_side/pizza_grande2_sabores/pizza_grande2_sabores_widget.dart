@@ -447,12 +447,7 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                 ),
                               ),
                               StreamBuilder<List<SaboresRecord>>(
-                                stream: querySaboresRecord(
-                                  queryBuilder: (saboresRecord) =>
-                                      saboresRecord.where('type',
-                                          arrayContains:
-                                              _model.choiceChipsValue),
-                                ),
+                                stream: querySaboresRecord(),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
