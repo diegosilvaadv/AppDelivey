@@ -202,10 +202,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                               ),
                                         ),
                                         Text(
-                                          valueOrDefault<String>(
-                                            rowSomaRecord!.valor?.id,
-                                            '0',
-                                          ),
+                                          (rowSomaRecord != null).toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
