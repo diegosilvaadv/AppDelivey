@@ -15,3 +15,4 @@ export '/user_side/pizza_grande1sabor/pizza_grande1sabor_widget.dart'
 export '/user_side/pizza_grande2_sabores/pizza_grande2_sabores_widget.dart'
     show PizzaGrande2SaboresWidget;
 export '/user_side/carrinho/carrinho_widget.dart' show CarrinhoWidget;
+export '/user_side/card/card_widget.dart' show CardWidget;

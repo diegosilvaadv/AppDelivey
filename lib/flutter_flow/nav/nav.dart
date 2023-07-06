@@ -146,6 +146,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             cart: params.getParam<UserCardRecord>(
                 'cart', ParamType.Document, true),
           ),
+        ),
+        FFRoute(
+          name: 'CARD',
+          path: '/CARD',
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'CARD') : CardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
