@@ -198,11 +198,20 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                                   final choosenItemsItem =
                                                       choosenItems[
                                                           choosenItemsIndex];
-                                                  return CartItemWidget(
-                                                    key: Key(
-                                                        'Keyvt7_${choosenItemsIndex}_of_${choosenItems.length}'),
-                                                    cartDocument:
-                                                        choosenItemsItem,
+                                                  return Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                10.0,
+                                                                10.0,
+                                                                10.0,
+                                                                10.0),
+                                                    child: CartItemWidget(
+                                                      key: Key(
+                                                          'Keyvt7_${choosenItemsIndex}_of_${choosenItems.length}'),
+                                                      cartDocument:
+                                                          choosenItemsItem,
+                                                    ),
                                                   );
                                                 }),
                                               ),
@@ -615,10 +624,18 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                                                     createUserCardRecordData(
                                                                   user:
                                                                       currentUserReference,
-                                                                  nome: '',
-                                                                  preco: '',
-                                                                  descricao: '',
-                                                                  img: '',
+                                                                  nome:
+                                                                      columnSaboresRecord
+                                                                          .sabor,
+                                                                  preco:
+                                                                      columnSaboresRecord
+                                                                          .preco,
+                                                                  descricao:
+                                                                      columnSaboresRecord
+                                                                          .descricao,
+                                                                  img:
+                                                                      columnSaboresRecord
+                                                                          .img,
                                                                   time:
                                                                       getCurrentTimestamp,
                                                                 ));
