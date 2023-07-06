@@ -392,7 +392,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget> {
                       children: [
                         badges.Badge(
                           badgeContent: Text(
-                            FFAppState().Cart.length.toString(),
+                            _model.checkboxCheckedItems.length.toString(),
                             style: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
