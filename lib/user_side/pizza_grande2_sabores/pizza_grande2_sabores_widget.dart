@@ -268,7 +268,18 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('CARD');
+                                  context.pushNamed(
+                                    'CARD',
+                                    queryParameters: {
+                                      'cart': serializeParam(
+                                        containerUserCardRecordList.first,
+                                        ParamType.Document,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'cart': containerUserCardRecordList.first,
+                                    },
+                                  );
                                 },
                                 child: Stack(
                                   alignment: AlignmentDirectional(1.1, -1.1),
@@ -482,7 +493,8 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                                         ),
                                                         Text(
                                                           columnSaboresRecord
-                                                              .preco,
+                                                              .price
+                                                              .toString(),
                                                           maxLines: 2,
                                                           style: FlutterFlowTheme
                                                                   .of(context)

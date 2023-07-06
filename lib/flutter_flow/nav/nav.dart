@@ -150,8 +150,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CARD',
           path: '/CARD',
-          builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'CARD') : CardWidget(),
+          asyncParams: {
+            'cart': getDoc(['user_card'], UserCardRecord.fromSnapshot),
+          },
+          builder: (context, params) => CardWidget(
+            cart: params.getParam('cart', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

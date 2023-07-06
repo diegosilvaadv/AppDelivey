@@ -14,7 +14,12 @@ import 'card_model.dart';
 export 'card_model.dart';
 
 class CardWidget extends StatefulWidget {
-  const CardWidget({Key? key}) : super(key: key);
+  const CardWidget({
+    Key? key,
+    required this.cart,
+  }) : super(key: key);
+
+  final UserCardRecord? cart;
 
   @override
   _CardWidgetState createState() => _CardWidgetState();

@@ -131,7 +131,6 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'homeScreen': HomeScreenWidget(),
       'profileScreen': ProfileScreenWidget(),
-      'CARD': CardWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -198,30 +197,6 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
-                        ? FlutterFlowTheme.of(context).primary
-                        : Color(0xB0969696),
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.shopping_cart_outlined,
-                  color: currentIndex == 2
-                      ? FlutterFlowTheme.of(context).primary
-                      : Color(0xB0969696),
-                  size: 25.0,
-                ),
-                Text(
-                  'Cart',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 2
                         ? FlutterFlowTheme.of(context).primary
                         : Color(0xB0969696),
                     fontSize: 11.0,
