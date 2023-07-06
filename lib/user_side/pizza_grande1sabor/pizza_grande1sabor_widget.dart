@@ -171,8 +171,15 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
-                                    FutureBuilder<int>(
-                                      future: querySomaRecordCount(),
+                                    FutureBuilder<List<SomaRecord>>(
+                                      future: querySomaRecordOnce(
+                                        parent: containerUserCardRecordList
+                                            .where((e) => e.hasPreco())
+                                            .toList()
+                                            .first
+                                            .reference,
+                                        singleRecord: true,
+                                      ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
@@ -189,9 +196,21 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                             ),
                                           );
                                         }
-                                        int textCount = snapshot.data!;
+                                        List<SomaRecord> textSomaRecordList =
+                                            snapshot.data!;
+                                        // Return an empty Container when the item does not exist.
+                                        if (snapshot.data!.isEmpty) {
+                                          return Container();
+                                        }
+                                        final textSomaRecord =
+                                            textSomaRecordList.isNotEmpty
+                                                ? textSomaRecordList.first
+                                                : null;
                                         return Text(
-                                          textCount.toString(),
+                                          valueOrDefault<String>(
+                                            textSomaRecord!.somaPreco?.id,
+                                            '10',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
