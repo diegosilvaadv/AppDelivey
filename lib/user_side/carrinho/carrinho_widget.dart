@@ -172,7 +172,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 8.0),
                                     child: Text(
-                                      cartItemsItem.preco,
+                                      cartItemsItem.price.toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

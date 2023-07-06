@@ -11,7 +11,6 @@ import 'schema/pizzabroto_record.dart';
 import 'schema/sabores_record.dart';
 import 'schema/bordas_record.dart';
 import 'schema/user_card_record.dart';
-import 'schema/soma_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -25,7 +24,6 @@ export 'schema/pizzabroto_record.dart';
 export 'schema/sabores_record.dart';
 export 'schema/bordas_record.dart';
 export 'schema/user_card_record.dart';
-export 'schema/soma_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -333,62 +331,6 @@ Future<FFFirestorePage<UserCardRecord>> queryUserCardRecordPage({
     queryCollectionPage(
       UserCardRecord.collection,
       UserCardRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
-/// Functions to query SomaRecords (as a Stream and as a Future).
-Future<int> querySomaRecordCount({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      SomaRecord.collection(parent),
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<SomaRecord>> querySomaRecord({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      SomaRecord.collection(parent),
-      SomaRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<SomaRecord>> querySomaRecordOnce({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      SomaRecord.collection(parent),
-      SomaRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<SomaRecord>> querySomaRecordPage({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      SomaRecord.collection(parent),
-      SomaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

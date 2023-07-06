@@ -51,6 +51,11 @@ class UserCardRecord extends FirestoreRecord {
   DateTime? get time => _time;
   bool hasTime() => _time != null;
 
+  // "price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  bool hasPrice() => _price != null;
+
   void _initializeFields() {
     _nome = snapshotData['nome'] as String?;
     _preco = snapshotData['preco'] as String?;
@@ -59,6 +64,7 @@ class UserCardRecord extends FirestoreRecord {
     _img = snapshotData['img'] as String?;
     _user = snapshotData['user'] as DocumentReference?;
     _time = snapshotData['time'] as DateTime?;
+    _price = castToType<double>(snapshotData['price']);
   }
 
   static CollectionReference get collection =>
@@ -102,6 +108,7 @@ Map<String, dynamic> createUserCardRecordData({
   String? img,
   DocumentReference? user,
   DateTime? time,
+  double? price,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +118,7 @@ Map<String, dynamic> createUserCardRecordData({
       'img': img,
       'user': user,
       'time': time,
+      'price': price,
     }.withoutNulls,
   );
 
@@ -129,12 +137,21 @@ class UserCardRecordDocumentEquality implements Equality<UserCardRecord> {
         listEquality.equals(e1?.tipo, e2?.tipo) &&
         e1?.img == e2?.img &&
         e1?.user == e2?.user &&
-        e1?.time == e2?.time;
+        e1?.time == e2?.time &&
+        e1?.price == e2?.price;
   }
 
   @override
-  int hash(UserCardRecord? e) => const ListEquality().hash(
-      [e?.nome, e?.preco, e?.descricao, e?.tipo, e?.img, e?.user, e?.time]);
+  int hash(UserCardRecord? e) => const ListEquality().hash([
+        e?.nome,
+        e?.preco,
+        e?.descricao,
+        e?.tipo,
+        e?.img,
+        e?.user,
+        e?.time,
+        e?.price
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UserCardRecord;

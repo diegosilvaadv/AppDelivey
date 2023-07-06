@@ -537,7 +537,8 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                                               ),
                                                               Text(
                                                                 columnSaboresRecord
-                                                                    .preco,
+                                                                    .price
+                                                                    .toString(),
                                                                 maxLines: 2,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)

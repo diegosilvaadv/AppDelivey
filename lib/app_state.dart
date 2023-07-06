@@ -12,12 +12,19 @@ class FFAppState extends ChangeNotifier {
 
   FFAppState._internal();
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _cartum = prefs.getDouble('ff_cartum') ?? _cartum;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   List<DocumentReference> _cart = [];
   List<DocumentReference> get cart => _cart;
@@ -42,6 +49,13 @@ class FFAppState extends ChangeNotifier {
     DocumentReference Function(DocumentReference) updateFn,
   ) {
     _cart[_index] = updateFn(_cart[_index]);
+  }
+
+  double _cartum = 0;
+  double get cartum => _cartum;
+  set cartum(double _value) {
+    _cartum = _value;
+    prefs.setDouble('ff_cartum', _value);
   }
 }
 

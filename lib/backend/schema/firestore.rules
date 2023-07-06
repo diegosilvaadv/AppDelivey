@@ -42,12 +42,5 @@ service cloud.firestore {
       allow write: if resource.data.user == /databases/$(database)/documents/users/$(request.auth.uid);
       allow delete: if resource.data.user == /databases/$(database)/documents/users/$(request.auth.uid);
     }
-
-    match /user_card/{parent}/soma/{document} {
-      allow create: if request.auth.uid == get(/databases/$(database)/documents/user_card/$(parent)).data.preco;
-      allow read: if request.auth.uid == get(/databases/$(database)/documents/user_card/$(parent)).data.preco;
-      allow write: if request.auth.uid == get(/databases/$(database)/documents/user_card/$(parent)).data.preco;
-      allow delete: if request.auth.uid == get(/databases/$(database)/documents/user_card/$(parent)).data.preco;
-    }
   }
 }
