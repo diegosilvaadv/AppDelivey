@@ -136,10 +136,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'PizzaGrande1sabor',
           path: '/pizzaGrande1sabor',
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: PizzaGrande1saborWidget(),
-          ),
+          builder: (context, params) => PizzaGrande1saborWidget(),
         ),
         FFRoute(
           name: 'PizzaGrande2Sabores',
