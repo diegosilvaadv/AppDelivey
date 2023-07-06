@@ -96,7 +96,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
           title: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
             child: Text(
-              'GRANDE (8PEDAÇOS)',
+              'GRANDE (8 PEDAÇOS)',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
@@ -105,7 +105,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
             ),
           ),
           actions: [],
-          centerTitle: true,
+          centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
@@ -159,7 +159,7 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      'Cart',
+                                      'R\$',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -170,6 +170,44 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                             letterSpacing: 0.5,
                                             fontWeight: FontWeight.w500,
                                           ),
+                                    ),
+                                    StreamBuilder<UserCardRecord>(
+                                      stream: UserCardRecord.getDocument(
+                                          containerUserCardRecordList
+                                              .first.reference),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitPulse(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        final textUserCardRecord =
+                                            snapshot.data!;
+                                        return Text(
+                                          textUserCardRecord.preco,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.5,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        );
+                                      },
                                     ),
                                     Expanded(
                                       child: Stack(
