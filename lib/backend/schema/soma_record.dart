@@ -16,15 +16,15 @@ class SomaRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "valor" field.
-  DocumentReference? _valor;
-  DocumentReference? get valor => _valor;
-  bool hasValor() => _valor != null;
+  // "soma_preco" field.
+  DocumentReference? _somaPreco;
+  DocumentReference? get somaPreco => _somaPreco;
+  bool hasSomaPreco() => _somaPreco != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
-    _valor = snapshotData['valor'] as DocumentReference?;
+    _somaPreco = snapshotData['soma_preco'] as DocumentReference?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -66,11 +66,11 @@ class SomaRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createSomaRecordData({
-  DocumentReference? valor,
+  DocumentReference? somaPreco,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'valor': valor,
+      'soma_preco': somaPreco,
     }.withoutNulls,
   );
 
@@ -82,11 +82,11 @@ class SomaRecordDocumentEquality implements Equality<SomaRecord> {
 
   @override
   bool equals(SomaRecord? e1, SomaRecord? e2) {
-    return e1?.valor == e2?.valor;
+    return e1?.somaPreco == e2?.somaPreco;
   }
 
   @override
-  int hash(SomaRecord? e) => const ListEquality().hash([e?.valor]);
+  int hash(SomaRecord? e) => const ListEquality().hash([e?.somaPreco]);
 
   @override
   bool isValidKey(Object? o) => o is SomaRecord;
