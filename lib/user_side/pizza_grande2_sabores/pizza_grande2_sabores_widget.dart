@@ -306,59 +306,69 @@ class _PizzaGrande2SaboresWidgetState extends State<PizzaGrande2SaboresWidget>
                                   ],
                                 ),
                               ),
-                              Stack(
-                                alignment: AlignmentDirectional(1.1, -1.1),
-                                children: [
-                                  Material(
-                                    color: Colors.transparent,
-                                    elevation: 4.0,
-                                    shape: const CircleBorder(),
-                                    child: Container(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        shape: BoxShape.circle,
-                                        border: Border.all(
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed('CARD');
+                                },
+                                child: Stack(
+                                  alignment: AlignmentDirectional(1.1, -1.1),
+                                  children: [
+                                    Material(
+                                      color: Colors.transparent,
+                                      elevation: 4.0,
+                                      shape: const CircleBorder(),
+                                      child: Container(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          width: 2.0,
+                                              .primaryBackground,
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            width: 2.0,
+                                          ),
+                                        ),
+                                        child: Icon(
+                                          Icons.shopping_cart_outlined,
+                                          color: Color(0xFF0E9134),
+                                          size: 24.0,
                                         ),
                                       ),
-                                      child: Icon(
-                                        Icons.shopping_cart_outlined,
+                                    ),
+                                    Container(
+                                      width: 20.0,
+                                      height: 20.0,
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF0E9134),
-                                        size: 24.0,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Text(
+                                          containerUserCardRecordList.length
+                                              .toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                fontSize: 10.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: 20.0,
-                                    height: 20.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF0E9134),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        containerUserCardRecordList.length
-                                            .toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 10.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ).animateOnActionTrigger(
                                 animationsMap['stackOnActionTriggerAnimation']!,
                               ),
