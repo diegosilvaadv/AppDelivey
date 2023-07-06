@@ -193,188 +193,197 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Spacer(),
-                          Container(
-                            decoration: BoxDecoration(),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 40.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'Cart',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.5,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  Expanded(
-                                    child: Stack(
-                                      children: [
-                                        Container(
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
-                                            child: Builder(
-                                              builder: (context) {
-                                                final choosenItems =
-                                                    containerUserCardRecordList
-                                                        .toList();
-                                                return SingleChildScrollView(
-                                                  scrollDirection:
-                                                      Axis.horizontal,
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: List.generate(
-                                                        choosenItems.length,
-                                                        (choosenItemsIndex) {
-                                                      final choosenItemsItem =
-                                                          choosenItems[
-                                                              choosenItemsIndex];
-                                                      return Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0,
-                                                                    10.0),
-                                                        child: CartItemWidget(
-                                                          key: Key(
-                                                              'Keyk6e_${choosenItemsIndex}_of_${choosenItems.length}'),
-                                                          cartDocument:
-                                                              choosenItemsItem,
-                                                        ),
-                                                      );
-                                                    }),
-                                                  ),
-                                                );
-                                              },
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
+                            child: Container(
+                              decoration: BoxDecoration(),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 16.0, 40.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'Cart',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.5,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                    Expanded(
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final choosenItems =
+                                                      containerUserCardRecordList
+                                                          .toList();
+                                                  return SingleChildScrollView(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: List.generate(
+                                                          choosenItems.length,
+                                                          (choosenItemsIndex) {
+                                                        final choosenItemsItem =
+                                                            choosenItems[
+                                                                choosenItemsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0),
+                                                          child: CartItemWidget(
+                                                            key: Key(
+                                                                'Keyk6e_${choosenItemsIndex}_of_${choosenItems.length}'),
+                                                            cartDocument:
+                                                                choosenItemsItem,
+                                                          ),
+                                                        );
+                                                      }),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            ClipRRect(
-                                              child: Container(
-                                                width: 20.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      Color(0x0074E999),
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .tertiary
-                                                    ],
-                                                    stops: [0.0, 0.6],
-                                                    begin: AlignmentDirectional(
-                                                        1.0, 0.0),
-                                                    end: AlignmentDirectional(
-                                                        -1.0, 0),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              ClipRRect(
+                                                child: Container(
+                                                  width: 20.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color(0x0074E999),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary
+                                                      ],
+                                                      stops: [0.0, 0.6],
+                                                      begin:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      end: AlignmentDirectional(
+                                                          -1.0, 0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            ClipRRect(
-                                              child: Container(
-                                                width: 20.0,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  gradient: LinearGradient(
-                                                    colors: [
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .tertiary,
-                                                      Color(0x0074E999)
-                                                    ],
-                                                    stops: [0.6, 1.0],
-                                                    begin: AlignmentDirectional(
-                                                        1.0, 0.0),
-                                                    end: AlignmentDirectional(
-                                                        -1.0, 0),
+                                              ClipRRect(
+                                                child: Container(
+                                                  width: 20.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                        Color(0x0074E999)
+                                                      ],
+                                                      stops: [0.6, 1.0],
+                                                      begin:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      end: AlignmentDirectional(
+                                                          -1.0, 0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Stack(
-                                    alignment: AlignmentDirectional(1.1, -1.1),
-                                    children: [
-                                      Material(
-                                        color: Colors.transparent,
-                                        elevation: 4.0,
-                                        shape: const CircleBorder(),
-                                        child: Container(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
+                                    Stack(
+                                      alignment:
+                                          AlignmentDirectional(1.1, -1.1),
+                                      children: [
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 4.0,
+                                          shape: const CircleBorder(),
+                                          child: Container(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              width: 2.0,
+                                                      .primaryBackground,
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                width: 2.0,
+                                              ),
+                                            ),
+                                            child: Icon(
+                                              Icons.shopping_cart_outlined,
+                                              color: Color(0xFF0E9134),
+                                              size: 24.0,
                                             ),
                                           ),
-                                          child: Icon(
-                                            Icons.shopping_cart_outlined,
+                                        ),
+                                        Container(
+                                          width: 20.0,
+                                          height: 20.0,
+                                          decoration: BoxDecoration(
                                             color: Color(0xFF0E9134),
-                                            size: 24.0,
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Text(
+                                              containerUserCardRecordList.length
+                                                  .toString(),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    fontSize: 10.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Container(
-                                        width: 20.0,
-                                        height: 20.0,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFF0E9134),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Text(
-                                            containerUserCardRecordList.length
-                                                .toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  fontSize: 10.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ).animateOnActionTrigger(
-                                    animationsMap[
-                                        'stackOnActionTriggerAnimation']!,
-                                  ),
-                                ],
+                                      ],
+                                    ).animateOnActionTrigger(
+                                      animationsMap[
+                                          'stackOnActionTriggerAnimation']!,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -424,273 +433,276 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  StreamBuilder<List<SaboresRecord>>(
-                                    stream: querySaboresRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: SpinKitPulse(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              size: 50.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 16.0),
+                                    child: StreamBuilder<List<SaboresRecord>>(
+                                      stream: querySaboresRecord(),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: SpinKitPulse(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 50.0,
+                                              ),
                                             ),
-                                          ),
-                                        );
-                                      }
-                                      List<SaboresRecord>
-                                          columnSaboresRecordList =
-                                          snapshot.data!;
-                                      return Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: List.generate(
-                                            columnSaboresRecordList.length,
-                                            (columnIndex) {
-                                          final columnSaboresRecord =
-                                              columnSaboresRecordList[
-                                                  columnIndex];
-                                          return Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 16.0, 0.0, 16.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                              child: Text(
-                                                                columnSaboresRecord
-                                                                    .sabor,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          16.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: Text(
-                                                                columnSaboresRecord
-                                                                    .descricao,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Poppins',
-                                                                      fontSize:
-                                                                          16.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            Text(
-                                                              columnSaboresRecord
-                                                                  .preco,
-                                                              maxLines: 2,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    color: Color(
-                                                                        0xFF626C73),
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Stack(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 1.0),
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child:
-                                                                    CachedNetworkImage(
-                                                                  imageUrl:
-                                                                      columnSaboresRecord
-                                                                          .img,
-                                                                  width: 150.0,
-                                                                  height: 100.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                await UserCardRecord
-                                                                    .collection
-                                                                    .doc()
-                                                                    .set(
-                                                                        createUserCardRecordData(
-                                                                      user:
-                                                                          currentUserReference,
-                                                                      nome: columnSaboresRecord
-                                                                          .sabor,
-                                                                      preco: columnSaboresRecord
-                                                                          .preco,
-                                                                      descricao:
-                                                                          columnSaboresRecord
-                                                                              .descricao,
-                                                                      img: columnSaboresRecord
-                                                                          .img,
-                                                                      time:
-                                                                          getCurrentTimestamp,
-                                                                    ));
-                                                                if (animationsMap[
-                                                                        'stackOnActionTriggerAnimation'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'stackOnActionTriggerAnimation']!
-                                                                      .controller
-                                                                      .forward(
-                                                                          from:
-                                                                              0.0)
-                                                                      .whenComplete(animationsMap[
-                                                                              'stackOnActionTriggerAnimation']!
-                                                                          .controller
-                                                                          .reverse);
-                                                                }
-                                                              },
-                                                              text: 'Add',
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: 120.0,
-                                                                height: 36.0,
+                                          );
+                                        }
+                                        List<SaboresRecord>
+                                            columnSaboresRecordList =
+                                            snapshot.data!;
+                                        return Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: List.generate(
+                                              columnSaboresRecordList.length,
+                                              (columnIndex) {
+                                            final columnSaboresRecord =
+                                                columnSaboresRecordList[
+                                                    columnIndex];
+                                            return Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 16.0, 0.0, 16.0),
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            0.0),
-                                                                iconPadding:
+                                                                            4.0),
+                                                                child: Text(
+                                                                  columnSaboresRecord
+                                                                      .sabor,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            0.0),
-                                                                color: FlutterFlowTheme.of(
+                                                                            8.0),
+                                                                child: Text(
+                                                                  columnSaboresRecord
+                                                                      .descricao,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                columnSaboresRecord
+                                                                    .preco,
+                                                                maxLines: 2,
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryBackground,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Poppins',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
+                                                                      color: Color(
+                                                                          0xFF626C73),
                                                                       fontSize:
-                                                                          15.0,
+                                                                          12.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
                                                                     ),
-                                                                elevation: 2.0,
-                                                                borderSide:
-                                                                    BorderSide(
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Stack(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 1.0),
+                                                            children: [
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            16.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    imageUrl:
+                                                                        columnSaboresRecord
+                                                                            .img,
+                                                                    width:
+                                                                        150.0,
+                                                                    height:
+                                                                        100.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              FFButtonWidget(
+                                                                onPressed:
+                                                                    () async {
+                                                                  await UserCardRecord
+                                                                      .collection
+                                                                      .doc()
+                                                                      .set(
+                                                                          createUserCardRecordData(
+                                                                        user:
+                                                                            currentUserReference,
+                                                                        nome: columnSaboresRecord
+                                                                            .sabor,
+                                                                        preco: columnSaboresRecord
+                                                                            .preco,
+                                                                        descricao:
+                                                                            columnSaboresRecord.descricao,
+                                                                        img: columnSaboresRecord
+                                                                            .img,
+                                                                        time:
+                                                                            getCurrentTimestamp,
+                                                                      ));
+                                                                  if (animationsMap[
+                                                                          'stackOnActionTriggerAnimation'] !=
+                                                                      null) {
+                                                                    animationsMap[
+                                                                            'stackOnActionTriggerAnimation']!
+                                                                        .controller
+                                                                        .forward(
+                                                                            from:
+                                                                                0.0)
+                                                                        .whenComplete(animationsMap['stackOnActionTriggerAnimation']!
+                                                                            .controller
+                                                                            .reverse);
+                                                                  }
+                                                                },
+                                                                text: 'Add',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  width: 120.0,
+                                                                  height: 36.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  iconPadding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary,
-                                                                  width: 2.0,
+                                                                      .primaryBackground,
+                                                                  textStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                      ),
+                                                                  elevation:
+                                                                      2.0,
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    width: 2.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
                                                               ),
-                                                            ),
-                                                          ],
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Divider(
-                                                thickness: 2.0,
-                                              ),
-                                            ],
-                                          );
-                                        }),
-                                      );
-                                    },
+                                                Divider(
+                                                  thickness: 2.0,
+                                                ),
+                                              ],
+                                            );
+                                          }),
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ],
                               ),
