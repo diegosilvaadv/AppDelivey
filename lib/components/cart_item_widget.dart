@@ -101,8 +101,6 @@ class _CartItemWidgetState extends State<CartItemWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       alignment: AlignmentDirectional(1.1, -0.8),
       children: [
