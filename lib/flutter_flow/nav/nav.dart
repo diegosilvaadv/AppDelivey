@@ -105,13 +105,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : HomeScreenWidget(),
         ),
         FFRoute(
-          name: 'cartScreen',
-          path: '/cartScreen',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'cartScreen')
-              : CartScreenWidget(),
-        ),
-        FFRoute(
           name: 'profileScreen',
           path: '/profileScreen',
           builder: (context, params) => params.isEmpty
@@ -142,6 +135,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PizzaGrande2Sabores',
           path: '/pizzaGrande2Sabores',
           builder: (context, params) => PizzaGrande2SaboresWidget(),
+        ),
+        FFRoute(
+          name: 'carrinho',
+          path: '/carrinho',
+          asyncParams: {
+            'cart': getDocList(['user_card'], UserCardRecord.fromSnapshot),
+          },
+          builder: (context, params) => CarrinhoWidget(
+            cart: params.getParam<UserCardRecord>(
+                'cart', ParamType.Document, true),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

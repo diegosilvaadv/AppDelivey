@@ -171,59 +171,18 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
-                                    FutureBuilder<List<SomaRecord>>(
-                                      future: querySomaRecordOnce(
-                                        parent: containerUserCardRecordList
-                                            .where((e) => e.hasPreco())
-                                            .toList()
-                                            .first
-                                            .reference,
-                                        singleRecord: true,
-                                      ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: SpinKitPulse(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                size: 50.0,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<SomaRecord> textSomaRecordList =
-                                            snapshot.data!;
-                                        // Return an empty Container when the item does not exist.
-                                        if (snapshot.data!.isEmpty) {
-                                          return Container();
-                                        }
-                                        final textSomaRecord =
-                                            textSomaRecordList.isNotEmpty
-                                                ? textSomaRecordList.first
-                                                : null;
-                                        return Text(
-                                          valueOrDefault<String>(
-                                            textSomaRecord!.somaPreco?.id,
-                                            '10',
+                                    Text(
+                                      'total',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.5,
+                                            fontWeight: FontWeight.w500,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.5,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        );
-                                      },
                                     ),
                                     Expanded(
                                       child: Stack(
@@ -328,64 +287,87 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                         ],
                                       ),
                                     ),
-                                    Stack(
-                                      alignment:
-                                          AlignmentDirectional(1.1, -1.1),
-                                      children: [
-                                        Material(
-                                          color: Colors.transparent,
-                                          elevation: 4.0,
-                                          shape: const CircleBorder(),
-                                          child: Container(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'carrinho',
+                                          queryParameters: {
+                                            'cart': serializeParam(
+                                              containerUserCardRecordList,
+                                              ParamType.Document,
+                                              true,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            'cart': containerUserCardRecordList,
+                                          },
+                                        );
+                                      },
+                                      child: Stack(
+                                        alignment:
+                                            AlignmentDirectional(1.1, -1.1),
+                                        children: [
+                                          Material(
+                                            color: Colors.transparent,
+                                            elevation: 4.0,
+                                            shape: const CircleBorder(),
+                                            child: Container(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                width: 2.0,
+                                                        .primaryBackground,
+                                                shape: BoxShape.circle,
+                                                border: Border.all(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  width: 2.0,
+                                                ),
+                                              ),
+                                              child: Icon(
+                                                Icons.shopping_cart_outlined,
+                                                color: Color(0xFF0E9134),
+                                                size: 24.0,
                                               ),
                                             ),
-                                            child: Icon(
-                                              Icons.shopping_cart_outlined,
+                                          ),
+                                          Container(
+                                            width: 20.0,
+                                            height: 20.0,
+                                            decoration: BoxDecoration(
                                               color: Color(0xFF0E9134),
-                                              size: 24.0,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                containerUserCardRecordList
+                                                    .length
+                                                    .toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 10.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        Container(
-                                          width: 20.0,
-                                          height: 20.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFF0E9134),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              containerUserCardRecordList.length
-                                                  .toString(),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    fontSize: 10.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ).animateOnActionTrigger(
                                       animationsMap[
                                           'stackOnActionTriggerAnimation']!,
