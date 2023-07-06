@@ -238,7 +238,7 @@ class _CarrinhoWidgetState extends State<CarrinhoWidget> {
                                 ? textUserCardRecordList.first
                                 : null;
                         return Text(
-                          textUserCardRecord!.hasPreco().toString(),
+                          'cart: ${FFAppState().cartum.toString()}',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
