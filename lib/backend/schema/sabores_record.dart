@@ -41,12 +41,24 @@ class SaboresRecord extends FirestoreRecord {
   bool get marcacao => _marcacao ?? false;
   bool hasMarcacao() => _marcacao != null;
 
+  // "type" field.
+  List<String>? _type;
+  List<String> get type => _type ?? const [];
+  bool hasType() => _type != null;
+
+  // "user_card" field.
+  DocumentReference? _userCard;
+  DocumentReference? get userCard => _userCard;
+  bool hasUserCard() => _userCard != null;
+
   void _initializeFields() {
     _sabor = snapshotData['sabor'] as String?;
     _descricao = snapshotData['descricao'] as String?;
     _preco = snapshotData['preco'] as String?;
     _img = snapshotData['img'] as String?;
     _marcacao = snapshotData['Marcacao'] as bool?;
+    _type = getDataList(snapshotData['type']);
+    _userCard = snapshotData['user_card'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -89,6 +101,7 @@ Map<String, dynamic> createSaboresRecordData({
   String? preco,
   String? img,
   bool? marcacao,
+  DocumentReference? userCard,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +110,7 @@ Map<String, dynamic> createSaboresRecordData({
       'preco': preco,
       'img': img,
       'Marcacao': marcacao,
+      'user_card': userCard,
     }.withoutNulls,
   );
 
@@ -108,16 +122,26 @@ class SaboresRecordDocumentEquality implements Equality<SaboresRecord> {
 
   @override
   bool equals(SaboresRecord? e1, SaboresRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.sabor == e2?.sabor &&
         e1?.descricao == e2?.descricao &&
         e1?.preco == e2?.preco &&
         e1?.img == e2?.img &&
-        e1?.marcacao == e2?.marcacao;
+        e1?.marcacao == e2?.marcacao &&
+        listEquality.equals(e1?.type, e2?.type) &&
+        e1?.userCard == e2?.userCard;
   }
 
   @override
-  int hash(SaboresRecord? e) => const ListEquality()
-      .hash([e?.sabor, e?.descricao, e?.preco, e?.img, e?.marcacao]);
+  int hash(SaboresRecord? e) => const ListEquality().hash([
+        e?.sabor,
+        e?.descricao,
+        e?.preco,
+        e?.img,
+        e?.marcacao,
+        e?.type,
+        e?.userCard
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is SaboresRecord;

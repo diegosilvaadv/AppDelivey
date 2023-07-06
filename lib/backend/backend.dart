@@ -12,6 +12,7 @@ import 'schema/pizza_grande_record.dart';
 import 'schema/pizzabroto_record.dart';
 import 'schema/sabores_record.dart';
 import 'schema/bordas_record.dart';
+import 'schema/user_card_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,6 +27,7 @@ export 'schema/pizza_grande_record.dart';
 export 'schema/pizzabroto_record.dart';
 export 'schema/sabores_record.dart';
 export 'schema/bordas_record.dart';
+export 'schema/user_card_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -389,6 +391,58 @@ Future<FFFirestorePage<BordasRecord>> queryBordasRecordPage({
     queryCollectionPage(
       BordasRecord.collection,
       BordasRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query UserCardRecords (as a Stream and as a Future).
+Future<int> queryUserCardRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserCardRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserCardRecord>> queryUserCardRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserCardRecord.collection,
+      UserCardRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserCardRecord>> queryUserCardRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserCardRecord.collection,
+      UserCardRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<UserCardRecord>> queryUserCardRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      UserCardRecord.collection,
+      UserCardRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
