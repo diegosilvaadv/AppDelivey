@@ -155,243 +155,201 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 40.0),
-                                child: StreamBuilder<List<SomaRecord>>(
-                                  stream: querySomaRecord(
-                                    singleRecord: true,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: SpinKitPulse(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'R\$',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 50.0,
+                                                .primaryText,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.5,
+                                            fontWeight: FontWeight.w500,
                                           ),
-                                        ),
-                                      );
-                                    }
-                                    List<SomaRecord> rowSomaRecordList =
-                                        snapshot.data!;
-                                    // Return an empty Container when the item does not exist.
-                                    if (snapshot.data!.isEmpty) {
-                                      return Container();
-                                    }
-                                    final rowSomaRecord =
-                                        rowSomaRecordList.isNotEmpty
-                                            ? rowSomaRecordList.first
-                                            : null;
-                                    return Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          'R\$',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.5,
-                                                fontWeight: FontWeight.w500,
+                                    ),
+                                    Text(
+                                      '',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.5,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                    Expanded(
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            width: double.infinity,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: Builder(
+                                                builder: (context) {
+                                                  final choosenItems =
+                                                      containerUserCardRecordList
+                                                          .toList();
+                                                  return SingleChildScrollView(
+                                                    scrollDirection:
+                                                        Axis.horizontal,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: List.generate(
+                                                          choosenItems.length,
+                                                          (choosenItemsIndex) {
+                                                        final choosenItemsItem =
+                                                            choosenItems[
+                                                                choosenItemsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0,
+                                                                      10.0),
+                                                          child: CartItemWidget(
+                                                            key: Key(
+                                                                'Keyk6e_${choosenItemsIndex}_of_${choosenItems.length}'),
+                                                            cartDocument:
+                                                                choosenItemsItem,
+                                                          ),
+                                                        );
+                                                      }),
+                                                    ),
+                                                  );
+                                                },
                                               ),
-                                        ),
-                                        Text(
-                                          (rowSomaRecord != null).toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.5,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                        Expanded(
-                                          child: Stack(
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Container(
-                                                width: double.infinity,
-                                                decoration: BoxDecoration(),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 10.0, 0.0),
-                                                  child: Builder(
-                                                    builder: (context) {
-                                                      final choosenItems =
-                                                          containerUserCardRecordList
-                                                              .toList();
-                                                      return SingleChildScrollView(
-                                                        scrollDirection:
-                                                            Axis.horizontal,
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: List.generate(
-                                                              choosenItems
-                                                                  .length,
-                                                              (choosenItemsIndex) {
-                                                            final choosenItemsItem =
-                                                                choosenItems[
-                                                                    choosenItemsIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
-                                                              child:
-                                                                  CartItemWidget(
-                                                                key: Key(
-                                                                    'Keyk6e_${choosenItemsIndex}_of_${choosenItems.length}'),
-                                                                cartDocument:
-                                                                    choosenItemsItem,
-                                                              ),
-                                                            );
-                                                          }),
-                                                        ),
-                                                      );
-                                                    },
+                                              ClipRRect(
+                                                child: Container(
+                                                  width: 20.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        Color(0x0074E999),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary
+                                                      ],
+                                                      stops: [0.0, 0.6],
+                                                      begin:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      end: AlignmentDirectional(
+                                                          -1.0, 0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  ClipRRect(
-                                                    child: Container(
-                                                      width: 20.0,
-                                                      height: 60.0,
-                                                      decoration: BoxDecoration(
-                                                        gradient:
-                                                            LinearGradient(
-                                                          colors: [
-                                                            Color(0x0074E999),
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary
-                                                          ],
-                                                          stops: [0.0, 0.6],
-                                                          begin:
-                                                              AlignmentDirectional(
-                                                                  1.0, 0.0),
-                                                          end:
-                                                              AlignmentDirectional(
-                                                                  -1.0, 0),
-                                                        ),
-                                                      ),
+                                              ClipRRect(
+                                                child: Container(
+                                                  width: 20.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                      colors: [
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .tertiary,
+                                                        Color(0x0074E999)
+                                                      ],
+                                                      stops: [0.6, 1.0],
+                                                      begin:
+                                                          AlignmentDirectional(
+                                                              1.0, 0.0),
+                                                      end: AlignmentDirectional(
+                                                          -1.0, 0),
                                                     ),
                                                   ),
-                                                  ClipRRect(
-                                                    child: Container(
-                                                      width: 20.0,
-                                                      height: 60.0,
-                                                      decoration: BoxDecoration(
-                                                        gradient:
-                                                            LinearGradient(
-                                                          colors: [
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                            Color(0x0074E999)
-                                                          ],
-                                                          stops: [0.6, 1.0],
-                                                          begin:
-                                                              AlignmentDirectional(
-                                                                  1.0, 0.0),
-                                                          end:
-                                                              AlignmentDirectional(
-                                                                  -1.0, 0),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                ),
                                               ),
                                             ],
                                           ),
-                                        ),
-                                        Stack(
-                                          alignment:
-                                              AlignmentDirectional(1.1, -1.1),
-                                          children: [
-                                            Material(
-                                              color: Colors.transparent,
-                                              elevation: 4.0,
-                                              shape: const CircleBorder(),
-                                              child: Container(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
+                                        ],
+                                      ),
+                                    ),
+                                    Stack(
+                                      alignment:
+                                          AlignmentDirectional(1.1, -1.1),
+                                      children: [
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 4.0,
+                                          shape: const CircleBorder(),
+                                          child: Container(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
                                                       .primaryBackground,
-                                                  shape: BoxShape.circle,
-                                                  border: Border.all(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                width: 2.0,
+                                              ),
+                                            ),
+                                            child: Icon(
+                                              Icons.shopping_cart_outlined,
+                                              color: Color(0xFF0E9134),
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 20.0,
+                                          height: 20.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFF0E9134),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Text(
+                                              containerUserCardRecordList.length
+                                                  .toString(),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondary,
-                                                    width: 2.0,
+                                                        .primaryBackground,
+                                                    fontSize: 10.0,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
-                                                ),
-                                                child: Icon(
-                                                  Icons.shopping_cart_outlined,
-                                                  color: Color(0xFF0E9134),
-                                                  size: 24.0,
-                                                ),
-                                              ),
                                             ),
-                                            Container(
-                                              width: 20.0,
-                                              height: 20.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF0E9134),
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  containerUserCardRecordList
-                                                      .length
-                                                      .toString(),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 10.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ).animateOnActionTrigger(
-                                          animationsMap[
-                                              'stackOnActionTriggerAnimation']!,
+                                          ),
                                         ),
                                       ],
-                                    );
-                                  },
+                                    ).animateOnActionTrigger(
+                                      animationsMap[
+                                          'stackOnActionTriggerAnimation']!,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
