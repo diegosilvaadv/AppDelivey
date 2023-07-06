@@ -619,6 +619,8 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                                                             .img,
                                                                         time:
                                                                             getCurrentTimestamp,
+                                                                        price: columnSaboresRecord
+                                                                            .price,
                                                                       ));
                                                                   if (animationsMap[
                                                                           'stackOnActionTriggerAnimation'] !=
