@@ -155,8 +155,8 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 40.0),
-                                child: StreamBuilder<List<UserCardRecord>>(
-                                  stream: queryUserCardRecord(
+                                child: StreamBuilder<List<SomaRecord>>(
+                                  stream: querySomaRecord(
                                     singleRecord: true,
                                   ),
                                   builder: (context, snapshot) {
@@ -174,15 +174,15 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                         ),
                                       );
                                     }
-                                    List<UserCardRecord> rowUserCardRecordList =
+                                    List<SomaRecord> rowSomaRecordList =
                                         snapshot.data!;
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
                                     }
-                                    final rowUserCardRecord =
-                                        rowUserCardRecordList.isNotEmpty
-                                            ? rowUserCardRecordList.first
+                                    final rowSomaRecord =
+                                        rowSomaRecordList.isNotEmpty
+                                            ? rowSomaRecordList.first
                                             : null;
                                     return Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -202,7 +202,10 @@ class _PizzaGrande1saborWidgetState extends State<PizzaGrande1saborWidget>
                                               ),
                                         ),
                                         Text(
-                                          rowUserCardRecord!.preco,
+                                          valueOrDefault<String>(
+                                            rowSomaRecord!.valor?.id,
+                                            '0',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
